@@ -24,7 +24,8 @@ public class Produto {
     private BigDecimal precoProduto;
     private int estoque;
     private Categoria categoria;
-    private String promocaoProduto;
+    @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
+    private UUID idPromocao;
 
     public Produto(ProdutoRequest produtoRequest) {
         this.nomeProduto = produtoRequest.getNomeProduto();
@@ -32,6 +33,6 @@ public class Produto {
         this.precoProduto = produtoRequest.getPrecoProduto();
         this.estoque = produtoRequest.getEstoque();
         this.categoria = produtoRequest.getCategoria();
-        this.promocaoProduto = produtoRequest.getPromocaoProduto();
+        this.idPromocao = produtoRequest.getIdPromocao();
     }
 }

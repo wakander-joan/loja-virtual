@@ -17,7 +17,7 @@ public class ProdutoDetalhadoResponse {
     private BigDecimal precoProduto;
     private int estoque;
     private Categoria categoria;
-    private String promocaoProduto;
+    private UUID idPromocao;
 
     public ProdutoDetalhadoResponse(Produto produto) {
         this.idProduto = produto.getIdProduto();
@@ -26,6 +26,6 @@ public class ProdutoDetalhadoResponse {
         this.precoProduto = produto.getPrecoProduto();
         this.estoque = produto.getEstoque();
         this.categoria = produto.getCategoria();
-        this.promocaoProduto = produto.getPromocaoProduto();
+        this.idPromocao = produto.getIdPromocao();
     }
 }
