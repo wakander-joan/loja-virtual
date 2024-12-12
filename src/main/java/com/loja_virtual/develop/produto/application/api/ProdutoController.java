@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -27,5 +28,12 @@ public class ProdutoController implements ProdutoAPI {
         ProdutoDetalhadoResponse produto = produtoService.getProduto(idProduto);
         log.info("[finish] ProdutoController - getProduto");
         return produto;
+    }
+
+    @Override
+    public List<ProdutoListResponse> getAllProdutos() {
+        log.info("[start] ProdutoController - getAllProdutos");
+        log.info("[finish] ProdutoController - getAllProdutos");
+        return List.of();
     }
 }
