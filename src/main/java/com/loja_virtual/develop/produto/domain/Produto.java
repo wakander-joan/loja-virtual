@@ -1,9 +1,8 @@
 package com.loja_virtual.develop.produto.domain;
 
+import com.loja_virtual.develop.produto.application.api.ProdutoRequest;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -11,7 +10,9 @@ import java.util.UUID;
 @Entity
 @Getter
 @ToString
-@Builder
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@Builder(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +25,13 @@ public class Produto {
     private int estoque;
     private Categoria categoria;
     private String promocaoProduto;
+
+    public Produto(ProdutoRequest produtoRequest) {
+        this.nomeProduto = produtoRequest.getNomeProduto();
+        this.descricao = produtoRequest.getDescricao();
+        this.precoProduto = produtoRequest.getPrecoProduto();
+        this.estoque = produtoRequest.getEstoque();
+        this.categoria = produtoRequest.getCategoria();
+        this.promocaoProduto = produtoRequest.getPromocaoProduto();
+    }
 }
