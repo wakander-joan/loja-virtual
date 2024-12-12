@@ -1,11 +1,14 @@
 package com.loja_virtual.develop.produto.application.service;
 
+import com.loja_virtual.develop.produto.application.api.ProdutoDetalhadoResponse;
 import com.loja_virtual.develop.produto.application.api.ProdutoRequest;
 import com.loja_virtual.develop.produto.application.api.ProdutoResponse;
 import com.loja_virtual.develop.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @Log
@@ -19,5 +22,12 @@ public class ProdutoApplicationService implements ProdutoService {
         Produto produto = produtoRepository.salvaProduto(new Produto(produtoRequest));
         log.info("[finish] ProdutoApplicationService - postProduto");
         return new ProdutoResponse(produto);
+    }
+
+    @Override
+    public ProdutoDetalhadoResponse getProduto(UUID idProduto) {
+        log.info("[start] ProdutoApplicationService - getProduto");
+        log.info("[finish] ProdutoApplicationService - getProduto");
+        return null;
     }
 }

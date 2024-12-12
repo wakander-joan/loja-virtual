@@ -24,7 +24,8 @@ public class ProdutoController implements ProdutoAPI {
     @Override
     public ProdutoDetalhadoResponse getProduto(UUID idProduto) {
         log.info("[start] ProdutoController - getProduto");
+        ProdutoDetalhadoResponse produto = produtoService.getProduto(idProduto);
         log.info("[finish] ProdutoController - getProduto");
-        return null;
+        return produto;
     }
 }
