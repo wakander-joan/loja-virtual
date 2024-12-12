@@ -24,7 +24,8 @@ public class PromocaoController implements PromocaoAPI {
     @Override
     public PromocaoDetalhadoResponse getPromocao(UUID idPromocao) {
         log.info("[start] PromocaoController - getPromocao");
+        PromocaoDetalhadoResponse promocao = promocaoService.getPromocao(idPromocao);
         log.info("[finish] PromocaoController - getPromocao");
-        return null;
+        return promocao;
     }
 }
