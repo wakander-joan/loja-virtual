@@ -33,7 +33,8 @@ public class ProdutoController implements ProdutoAPI {
     @Override
     public List<ProdutoListResponse> getAllProdutos() {
         log.info("[start] ProdutoController - getAllProdutos");
+        List<ProdutoListResponse> produtos = produtoService.getAllProdutos();
         log.info("[finish] ProdutoController - getAllProdutos");
-        return List.of();
+        return produtos;
     }
 }
