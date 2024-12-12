@@ -27,7 +27,8 @@ public class PromocaoApplicationService implements PromocaoService {
     @Override
     public PromocaoDetalhadoResponse getPromocao(UUID idPromocao) {
         log.info("[start] PromocaoApplicationService - getPromocao");
+        Promocao promocao = promocaoRepository.getPromocao(idPromocao);
         log.info("[finish] PromocaoApplicationService - getPromocao");
-        return null;
+        return new PromocaoDetalhadoResponse(promocao);
     }
 }

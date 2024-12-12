@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @Log
 @RequiredArgsConstructor
@@ -18,5 +20,13 @@ public class PromocaoInfraRepository implements PromocaoRepository {
         Promocao promocaoSalva = promocaoSpringDataJPARepository.save(promocao);
         log.info("[finish] PromocaoInfraRepository - postPromocao");
         return promocaoSalva;
+    }
+
+    @Override
+    public Promocao getPromocao(UUID idPromocao) {
+        log.info("[start] PromocaoInfraRepository - getPromocao");
+        Promocao promocao = promocaoSpringDataJPARepository.getById(idPromocao);
+        log.info("[finish] PromocaoInfraRepository - getPromocao");
+        return promocao;
     }
 }
