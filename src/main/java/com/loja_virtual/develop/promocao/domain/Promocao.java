@@ -25,5 +25,6 @@ public class Promocao {
     public Promocao(PromocaoRequest promocaoRequest) {
         this.nomePromocao = promocaoRequest.getNomePromocao();
         this.descontoPercentual = promocaoRequest.getDescontoPercentual();
+        this.StatusPromocao = StatusPromocao.ATIVA;
     }
 }
