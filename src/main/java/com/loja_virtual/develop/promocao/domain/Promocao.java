@@ -1,5 +1,6 @@
 package com.loja_virtual.develop.promocao.domain;
 
+import com.loja_virtual.develop.promocao.application.api.PromocaoRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +21,9 @@ public class Promocao {
     private String nomePromocao;
     private BigDecimal descontoPercentual;
     private StatusPromocao StatusPromocao;
+
+    public Promocao(PromocaoRequest promocaoRequest) {
+        this.nomePromocao = promocaoRequest.getNomePromocao();
+        this.descontoPercentual = promocaoRequest.getDescontoPercentual();
+    }
 }
