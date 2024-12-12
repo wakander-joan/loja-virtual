@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequiredArgsConstructor
 @Log
@@ -17,5 +19,12 @@ public class PromocaoController implements PromocaoAPI {
         PromocaoResponse promocao = promocaoService.postPromocao(promocaoRequest);
         log.info("[finish] PromocaoController - postPromocao");
         return promocao;
+    }
+
+    @Override
+    public PromocaoDetalhadoResponse getPromocao(UUID idPromocao) {
+        log.info("[start] PromocaoController - getPromocao");
+        log.info("[finish] PromocaoController - getPromocao");
+        return null;
     }
 }
