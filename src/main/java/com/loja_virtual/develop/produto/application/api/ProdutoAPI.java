@@ -10,6 +10,6 @@ public interface ProdutoAPI {
 
     @PostMapping("/cadastraProduto")
     @ResponseStatus(code = HttpStatus.CREATED)
-    ProdutoResponse postProduto (@Valid @RequestBody ProdutoRequest ProdutoRequest);
+    ProdutoResponse postProduto (@Valid @RequestBody ProdutoRequest produtoRequest);
 
 }
