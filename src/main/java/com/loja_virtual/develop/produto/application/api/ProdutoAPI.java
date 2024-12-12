@@ -21,6 +21,6 @@ public interface ProdutoAPI {
 
     @GetMapping("/getAllProduto")
     @ResponseStatus(code = HttpStatus.CREATED)
-    List <ProdutoListResponse> getAllProdutos ();
+    List <ProdutoListResponse> getAllProdutos();
 
 }

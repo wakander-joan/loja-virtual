@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -28,5 +29,13 @@ public class ProdutoInfraRepository implements ProdutoRepository {
         Produto produto = produtoSpringDataJPARepository.getById(idProduto);
         log.info("[finish] ProdutoInfraRepository - getProduto");
         return produto;
+    }
+
+    @Override
+    public List<Produto> getAllProdutos() {
+        log.info("[start] ProdutoInfraRepository - getAllProdutos");
+        List<Produto> produtos = produtoSpringDataJPARepository.findAll();
+        log.info("[finish] ProdutoInfraRepository - getAllProdutos");
+        return produtos;
     }
 }
