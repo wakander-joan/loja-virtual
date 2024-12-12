@@ -27,7 +27,8 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public ProdutoDetalhadoResponse getProduto(UUID idProduto) {
         log.info("[start] ProdutoApplicationService - getProduto");
+        Produto produto = produtoRepository.getProduto(idProduto);
         log.info("[finish] ProdutoApplicationService - getProduto");
-        return null;
+        return new ProdutoDetalhadoResponse(produto);
     }
 }
