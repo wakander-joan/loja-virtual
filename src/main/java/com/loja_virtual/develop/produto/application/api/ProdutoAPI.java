@@ -16,11 +16,11 @@ public interface ProdutoAPI {
     ProdutoResponse postProduto (@Valid @RequestBody ProdutoRequest produtoRequest);
 
     @GetMapping("/getProduto/{idProduto}")
-    @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(code = HttpStatus.OK)
     ProdutoDetalhadoResponse getProduto (@PathVariable UUID idProduto);
 
     @GetMapping("/getAllProduto")
-    @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(code = HttpStatus.OK)
     List <ProdutoListResponse> getAllProdutos();
 
 }

@@ -25,7 +25,7 @@ public class Produto {
     private BigDecimal precoProduto;
     private int estoque;
     private Categoria categoria;
-    @Column(columnDefinition = "uuid", updatable = false, unique = false, nullable = false)
+    @Column(columnDefinition = "uuid", updatable = false, unique = false, nullable = true)
     private UUID idPromocao;
 
 
