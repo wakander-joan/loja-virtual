@@ -6,14 +6,14 @@ import com.loja_virtual.develop.produto.application.api.ProdutoRequest;
 import com.loja_virtual.develop.produto.application.api.ProdutoResponse;
 import com.loja_virtual.develop.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-@Log
+@Log4j2
 @RequiredArgsConstructor
 public class ProdutoApplicationService implements ProdutoService {
     private final ProdutoRepository produtoRepository;

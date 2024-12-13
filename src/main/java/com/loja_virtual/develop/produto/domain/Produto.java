@@ -4,15 +4,16 @@ import com.loja_virtual.develop.produto.application.api.ProdutoRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@Builder(access = AccessLevel.PACKAGE)
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +25,9 @@ public class Produto {
     private BigDecimal precoProduto;
     private int estoque;
     private Categoria categoria;
-    @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", updatable = false, unique = false, nullable = false)
     private UUID idPromocao;
+
 
     public Produto(ProdutoRequest produtoRequest) {
         this.nomeProduto = produtoRequest.getNomeProduto();
