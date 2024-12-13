@@ -3,14 +3,14 @@ package com.loja_virtual.develop.produto.infra;
 import com.loja_virtual.develop.produto.application.service.ProdutoRepository;
 import com.loja_virtual.develop.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
 
 @Repository
-@Log
+@Log4j2
 @RequiredArgsConstructor
 public class ProdutoInfraRepository implements ProdutoRepository {
     private final ProdutoSpringDataJPARepository produtoSpringDataJPARepository;
