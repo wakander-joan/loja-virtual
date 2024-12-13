@@ -1,9 +1,11 @@
 package com.loja_virtual.develop.produto.infra;
 
+import com.loja_virtual.develop.handler.APIException;
 import com.loja_virtual.develop.produto.application.service.ProdutoRepository;
 import com.loja_virtual.develop.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,7 +28,8 @@ public class ProdutoInfraRepository implements ProdutoRepository {
     @Override
     public Produto getProduto(UUID idProduto) {
         log.info("[start] ProdutoInfraRepository - getProduto");
-        Produto produto = produtoSpringDataJPARepository.getById(idProduto);
+        Produto produto = produtoSpringDataJPARepository.findById(idProduto)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));
         log.info("[finish] ProdutoInfraRepository - getProduto");
         return produto;
     }
