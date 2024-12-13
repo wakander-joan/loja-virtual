@@ -1,11 +1,14 @@
 package com.loja_virtual.develop.cliente.application.service;
 
+import com.loja_virtual.develop.cliente.application.api.ClienteDetalhadoResponse;
 import com.loja_virtual.develop.cliente.application.api.ClienteRequest;
 import com.loja_virtual.develop.cliente.application.api.ClienteResponse;
 import com.loja_virtual.develop.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -19,5 +22,12 @@ public class ClienteApplicationService implements ClienteService {
         Cliente cliente = clienteRepository.salvaCliente(new Cliente(clienteRequest));
         log.info("[finish] ClienteApplicationService - postCliente");
         return new ClienteResponse(cliente);
+    }
+
+    @Override
+    public ClienteDetalhadoResponse getProduto(UUID idCliente) {
+        log.info("[start] ClienteApplicationService - getProduto");
+        log.info("[finish] ClienteApplicationService - getProduto");
+        return null;
     }
 }
