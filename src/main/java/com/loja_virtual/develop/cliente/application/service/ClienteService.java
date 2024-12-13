@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface ClienteService {
     ClienteResponse postCliente(ClienteRequest clienteRequest);
-    ClienteDetalhadoResponse getProduto(UUID idCliente);
+    ClienteDetalhadoResponse getCliente(UUID idCliente);
 }

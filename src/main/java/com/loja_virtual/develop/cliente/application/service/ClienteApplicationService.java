@@ -24,10 +24,12 @@ public class ClienteApplicationService implements ClienteService {
         return new ClienteResponse(cliente);
     }
 
+
     @Override
-    public ClienteDetalhadoResponse getProduto(UUID idCliente) {
+    public ClienteDetalhadoResponse getCliente(UUID idCliente) {
         log.info("[start] ClienteApplicationService - getProduto");
+        Cliente cliente = clienteRepository.getCliente(idCliente);
         log.info("[finish] ClienteApplicationService - getProduto");
-        return null;
+        return new ClienteDetalhadoResponse(cliente);
     }
 }
