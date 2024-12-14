@@ -35,6 +35,7 @@ public class CarrinhoApplicationService implements CarrinhoService {
         verificaProdutos(carrinhoRequest);
         Carrinho carrinhoAtualizado = criaCarrinho(carrinhoRequest);
         carrinhoRepository.save(carrinhoAtualizado);
+
         log.info("[finish] CarrinhoApplicationService - postCarrinho");
         return new CarrinhoResponse(carrinhoAtualizado);
     }
@@ -50,7 +51,9 @@ public class CarrinhoApplicationService implements CarrinhoService {
             if (produtoEstoque.getEstoque() < itemDoCarrinhoRequest.getQuantidade()) {
                 throw APIException.build(HttpStatus.NOT_FOUND, "Não tem estoque disponivel um dos Produtos");
             }
+            int valorAlterado = produtoEstoque.alteraEstoque(itemDoCarrinhoRequest.getQuantidade());
             log.info("Produto Verificado!", produtoEstoque.getNomeProduto());
+            log.info("Estoque Alterado para", valorAlterado);
         });
         log.info("[finish] CarrinhoApplicationService - verificaProdutos");
     }

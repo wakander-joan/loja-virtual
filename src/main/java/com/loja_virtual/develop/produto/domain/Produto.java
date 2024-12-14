@@ -37,4 +37,10 @@ public class Produto {
         this.categoria = produtoRequest.getCategoria();
         this.idPromocao = produtoRequest.getIdPromocao();
     }
+
+
+    public int alteraEstoque(int numeroReduçãoDeEstoque) {
+        this.estoque = estoque - numeroReduçãoDeEstoque;
+        return estoque;
+    }
 }
