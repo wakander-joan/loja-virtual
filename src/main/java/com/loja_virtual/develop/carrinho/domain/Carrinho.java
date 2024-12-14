@@ -1,6 +1,7 @@
 package com.loja_virtual.develop.carrinho.domain;
 
 import com.loja_virtual.develop.carrinho.application.api.CarrinhoRequest;
+import com.loja_virtual.develop.produto.application.service.ProdutoService;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,8 +27,13 @@ public class Carrinho {
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemCarrinho> itens;
 
-    public static Carrinho adicionaIten(Carrinho carrinho, CarrinhoRequest carrinhoRequest) {
+    public static Carrinho criaCarrinho (CarrinhoRequest carrinhoRequest){
+        Carrinho carrinho = new Carrinho();
+        carrinho.setIdCliente(UUID.fromString(String.valueOf(carrinhoRequest.getIdCliente())));
+        return Carrinho.adicionaIten(carrinho, carrinhoRequest);
+    };
 
+    public static Carrinho adicionaIten(Carrinho carrinho, CarrinhoRequest carrinhoRequest) {
         List<ItemCarrinho> itens = carrinhoRequest.getItens().stream()
                 .map(itemDoCarrinhoRequest -> {
                     ItemCarrinho item = new ItemCarrinho();
