@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Getter
 @ToString
-public class ItemCarrinhoDTO {
+public class ItemCarrinhoRequest {
     private UUID idProduto;
     private int quantidade;
 }

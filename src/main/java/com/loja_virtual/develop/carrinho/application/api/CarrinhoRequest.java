@@ -16,5 +16,5 @@ public class CarrinhoRequest {
     private UUID idCliente;
     @NotEmpty
     @Size(min = 1)
-    private List<ItemCarrinhoDTO> itens;
+    private List<ItemCarrinhoRequest> itens;
 }

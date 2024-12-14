@@ -12,9 +12,9 @@ public class CarrinhoController implements CarrinhoAPI {
     private final CarrinhoService carrinhoService;
 
     @Override
-    public CarrinhoResponse postCarrinho(CarrinhoRequest produtoRequest) {
+    public CarrinhoResponse postCarrinho(CarrinhoRequest carrinhoRequest) {
         log.info("[start] CarrinhoController - postCarrinho");
-        CarrinhoResponse carrinho = carrinhoService.postCarrinho(produtoRequest);
+        CarrinhoResponse carrinho = carrinhoService.postCarrinho(carrinhoRequest);
         log.info("[finish] CarrinhoController - postCarrinho");
         return carrinho;
     }
