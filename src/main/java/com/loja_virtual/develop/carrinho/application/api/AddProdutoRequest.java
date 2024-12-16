@@ -15,5 +15,7 @@ public class AddProdutoRequest {
     @NotNull
     private UUID idProduto;
     @NotNull
-    private int quantidade;
+    private int quantidadeAdicional;
+    @NotNull
+    private UUID idCarrinho;
 }

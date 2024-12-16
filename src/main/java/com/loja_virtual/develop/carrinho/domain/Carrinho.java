@@ -1,7 +1,8 @@
 package com.loja_virtual.develop.carrinho.domain;
 
+import com.loja_virtual.develop.carrinho.application.api.AddProdutoRequest;
 import com.loja_virtual.develop.carrinho.application.api.CarrinhoRequest;
-import com.loja_virtual.develop.produto.application.service.ProdutoService;
+import com.loja_virtual.develop.produto.domain.Produto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,10 +31,10 @@ public class Carrinho {
     public static Carrinho criaCarrinho (CarrinhoRequest carrinhoRequest){
         Carrinho carrinho = new Carrinho();
         carrinho.setIdCliente(UUID.fromString(String.valueOf(carrinhoRequest.getIdCliente())));
-        return Carrinho.adicionaIten(carrinho, carrinhoRequest);
+        return Carrinho.adicionaItenIniciais(carrinho, carrinhoRequest);
     };
 
-    public static Carrinho adicionaIten(Carrinho carrinho, CarrinhoRequest carrinhoRequest) {
+    public static Carrinho adicionaItenIniciais(Carrinho carrinho, CarrinhoRequest carrinhoRequest) {
         List<ItemCarrinho> itens = carrinhoRequest.getItens().stream()
                 .map(itemDoCarrinhoRequest -> {
                     ItemCarrinho item = new ItemCarrinho();
@@ -47,4 +48,17 @@ public class Carrinho {
         carrinho.setItens(itens);
         return carrinho;
     }
-}
+
+    public static Carrinho adicionaIten(AddProdutoRequest addProdutoRequest, Carrinho carrinho, Produto produto) {
+                    ItemCarrinho item = new ItemCarrinho();
+                    item.setIdProduto(UUID.fromString(String.valueOf(produto.getIdProduto())));
+                    item.setQuantidade(addProdutoRequest.getQuantidadeAdicional());
+                    item.setCarrinho(carrinho); // Relaciona o item com o carrinho
+                    carrinho.getItens().add(item);
+                    return carrinho;
+                }
+
+
+    }
+
+

@@ -1,6 +1,7 @@
 package com.loja_virtual.develop.carrinho.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.loja_virtual.develop.carrinho.application.api.ItemCarrinhoRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,5 +30,4 @@ public class ItemCarrinho {
     @JoinColumn(name = "id_carrinho", nullable = false)
     @JsonIgnore
     private Carrinho carrinho;
-
 }

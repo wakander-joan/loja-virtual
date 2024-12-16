@@ -2,6 +2,7 @@ package com.loja_virtual.develop.carrinho.infra;
 
 import com.loja_virtual.develop.carrinho.application.service.CarrinhoRepository;
 import com.loja_virtual.develop.carrinho.domain.Carrinho;
+import com.loja_virtual.develop.carrinho.domain.ItemCarrinho;
 import com.loja_virtual.develop.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,14 +27,24 @@ public class CarrinhoInfraRepository implements CarrinhoRepository {
     }
 
     @Override
-    public void getCarrinhoIdCliente(UUID idCliente) {
-        log.info("[start] CarrinhoInfraRepository - getCarrinhoIdCliente");
+    public List<Carrinho> getCarrinhoIdCliente(UUID idCliente) {
+        log.info("[start] CarrinhoInfraRepository - verificaCarrinhoAddProduto");
         List<Carrinho> carrinhos = carrinhoSpringDataJPARepository.findAllByIdCliente(idCliente);
-        if (!carrinhos.isEmpty()) {
-            log.error("Já existem carrinhos associados ao cliente com id: {}", idCliente);
-            throw APIException.build(HttpStatus.NOT_FOUND, "Já existe um carrinho associado ao Cliente");
-        }
-        log.info("Cliente Verificado! Esse cliente não possui carrinho!");
-        log.info("[finish] CarrinhoInfraRepository - getCarrinhoIdCliente");
+        log.info("[finish] CarrinhoInfraRepository - verificaCarrinhoAddProduto");
+        return carrinhos;
+    }
+
+    @Override
+    public Carrinho getCarrinhoPorId(UUID idCarrinho) {
+        log.info("[start] CarrinhoInfraRepository - getCarrinhoPorId");
+        Carrinho carrinho = carrinhoSpringDataJPARepository.findById(idCarrinho)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Carrinho não encontrado!"));
+        log.info("[finish] CarrinhoInfraRepository - getCarrinhoPorId");
+        return carrinho;
+    }
+
+    @Override
+    public void salvaProduto(ItemCarrinho itemCarrinho) {
+
     }
 }

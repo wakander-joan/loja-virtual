@@ -22,6 +22,7 @@ public class CarrinhoController implements CarrinhoAPI {
     @Override
     public void addProdutoCarrinho(AddProdutoRequest addProdutoRequest) {
         log.info("[start] CarrinhoController - addProdutoCarrinho");
+        carrinhoService.addProdutoCarrinho(addProdutoRequest);
         log.info("[finish] CarrinhoController - addProdutoCarrinho");
     }
 
