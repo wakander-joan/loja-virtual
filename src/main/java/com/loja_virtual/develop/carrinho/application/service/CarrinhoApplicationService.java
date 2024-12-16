@@ -22,7 +22,6 @@ import static com.loja_virtual.develop.carrinho.domain.Carrinho.criaCarrinho;
 @RequiredArgsConstructor
 public class CarrinhoApplicationService implements CarrinhoService {
     private final CarrinhoRepository carrinhoRepository;
-
     private final ClienteService clienteService;
     private final ProdutoRepository produtoRepository;
 

@@ -15,4 +15,8 @@ public interface CarrinhoAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     CarrinhoResponse postCarrinho (@Valid @RequestBody CarrinhoRequest carrinhoRequest);
 
+    @PostMapping("/addProdutoCarrinho")
+    @ResponseStatus(code = HttpStatus.OK)
+    void addProdutoCarrinho (@Valid @RequestBody AddProdutoRequest addProdutoRequest);
+
 }
